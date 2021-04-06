@@ -65,7 +65,7 @@
         <version>${spring.security.version}</version>
     </dependency>
 
-
+	
 
 		<!-- AspectJ -->
 		<dependency>
@@ -171,11 +171,11 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.2</version>
-			<scope>provided</scope>
-		</dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+            <scope>provided</scope>
+        </dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<!-- mybatis -->

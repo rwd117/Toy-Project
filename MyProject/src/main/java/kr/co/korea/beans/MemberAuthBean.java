@@ -14,8 +14,8 @@ public class MemberAuthBean implements UserDetails{
     private String AUTHORITY;
     private boolean ENABLED;//사용여부
     private String mname;//이름
-    private int mlevel;
-    private int mdrop;
+    private int mlevel;//사용자 권한 레벨
+    private int mdrop;//사용자 탈퇴 여부
 	
 	public void setAUTHORITY(String aUTHORITY) {
 		AUTHORITY = aUTHORITY;
@@ -64,9 +64,6 @@ public class MemberAuthBean implements UserDetails{
 	public void setNAME(String nAME) {
 		mname = nAME;
 	}
-	
-	
-	
 
 	public void setENABLED(boolean eNABLED) {
 		ENABLED = eNABLED;
@@ -75,25 +72,25 @@ public class MemberAuthBean implements UserDetails{
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return true;
+		return true;//계정 만료 여부
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return true;
+		return true;//계정 잠김 여부
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return true;
+		return true;//비밀번호 만료 여부
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return ENABLED;
+		return ENABLED;//계정 사용 가능한지 여부
 	}
 	
 	

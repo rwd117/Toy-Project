@@ -4,20 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-	crossorigin="anonymous">
-<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="px-4 py-3" action="/login" method="POST">
+<div class="container" style="width : 1600px">
+	<section id="container" >
+	<form class="px-4 py-3" action="/loginok" method="POST">
         <table>
             <tbody>
                 <tr>
-                    <td>User:</td>
+                    <td>ID:</td>
                     <td><input class="form-control" type="text" name="loginid" placeholder="ID"></td>
                 </tr>
                 <tr>
@@ -25,13 +25,14 @@
                     <td><input class="form-control" type="password" name="loginpwd" placeholder="Password"></td>
                 </tr>
                 <tr>
-                  <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}" />
+                  <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"s>
                   <td><button type="submit" class="btn btn-primary">Sign in</button></td>
                 </tr>
                 
             </tbody>
         </table>
     </form>
-
+    </section>
+</div>
 </body>
 </html>

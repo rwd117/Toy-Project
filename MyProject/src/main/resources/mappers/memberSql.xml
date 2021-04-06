@@ -6,4 +6,9 @@
 		select * from member where mid=#{loginid}
 	</select>
 	
+	<insert id="joinMember" parameterType="kr.co.korea.beans.MemberBean">
+		insert into member(mid,mpwd,mname,maddress,maddress2,mpost,memail)
+		values(#{mid},#{mpwd},#{mname},#{maddress},#{maddress2},#{mpost},#{memail})
+	</insert>
+	
 </mapper>
