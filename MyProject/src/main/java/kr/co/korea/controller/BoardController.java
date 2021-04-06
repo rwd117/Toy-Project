@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.korea.beans.BoardBean;
@@ -63,6 +64,41 @@ public class BoardController {
 		BoardBean boardbean = boardservice.readboard(bid);
 		model.addAttribute("board",boardbean);
 		return "/board/read";
+	}
+	
+	@GetMapping("update")
+	public String update(int bid,Model model) {
+		logger.info("update");
+		BoardBean boardbean = boardservice.readboard(bid);
+		model.addAttribute("board",boardbean);
+		
+		return "board/update";
+	}
+	
+	@PostMapping("updateok")
+	public String updateok(BoardBean boardbean,RedirectAttributes rddr) {
+		logger.info("updateok");
+		
+		boardservice.updateBoard(boardbean);
+		
+		rddr.addAttribute("bid",boardbean.getBid());
+		
+		return "redirect:/board/read";
+	}
+	
+	@GetMapping("delete")
+	public String delete(int bid,Model model) {
+		logger.info("delete");
+		BoardBean boardbean = boardservice.readboard(bid);
+		model.addAttribute("board",boardbean);
+		return "board/delete";
+	}
+	
+	@PostMapping("deleteok")
+	public String deleteok(@RequestParam(value="bid") int bid) {
+		logger.info("deleteok");
+		boardservice.deleteBoard(bid);
+		return "redirect:/board/list";
 	}
 	
 	//유저의 아이디를 가져옴

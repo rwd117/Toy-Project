@@ -19,4 +19,15 @@
 		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter 
 		from board
 	</select>
+	
+	<update id="updateboard" parameterType="kr.co.korea.beans.BoardBean">
+		update board 
+		set bcontent=#{bcontent},btitle=#{btitle} 
+		where bid=#{bid}
+	</update>
+	
+	<delete id="deletebaord" parameterType="Integer">
+		delete from board
+		where bid=#{bid}
+	</delete>
 </mapper>

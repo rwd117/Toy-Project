@@ -27,4 +27,13 @@ public class BoardDao {
 		return sqltemp.selectList("board.getboardlist");
 	}
 	
+	public void updateBoard(BoardBean boardbean) {
+		sqltemp.update("board.updateboard",boardbean);
+	}
+	
+	public void deleteBoard(int bid) {
+		sqltemp.delete("board.deletebaord",bid);
+	}
+	
+	
 }

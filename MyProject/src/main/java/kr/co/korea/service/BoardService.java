@@ -27,4 +27,12 @@ public class BoardService {
 		return boarddao.getboardlist();
 	}
 	
+	public void updateBoard(BoardBean boardbean) {
+		boarddao.updateBoard(boardbean);
+	}
+	
+	public void deleteBoard(int bid) {
+		boarddao.deleteBoard(bid);
+	}
+	
 }

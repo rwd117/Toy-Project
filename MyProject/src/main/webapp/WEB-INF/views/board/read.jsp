@@ -37,6 +37,8 @@
 				<td><input class="form-control" type="text" id="bwriter" name="bwriter" value="${board.bwriter }" disabled="disabled" /></td>
 				<td>작성 날짜 : ${board.bdate }</td>
 			</tr>
+			
+			
 		</table>
 
 
