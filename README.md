@@ -8,4 +8,4 @@
 
 + Backend: Spring(Security) | Java 8 | Oracle | Mybatis | Tomcat 9.0 | 
 
-+ Frontend: JavaScript(jQuery), css
++ Frontend: JavaScript(jQuery), Bootstrap
