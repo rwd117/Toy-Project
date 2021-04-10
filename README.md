@@ -1,6 +1,6 @@
 # Toy-Project
 
-+ SpringMVC패턴을 이용한 쇼핑몰
++ 
 
 ------------
 
