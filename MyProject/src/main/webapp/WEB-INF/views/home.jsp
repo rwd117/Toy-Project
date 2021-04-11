@@ -24,7 +24,7 @@
 </sec:authorize>
 
 
-<a href='<c:url value="/board/list"/>'>게시물 보기</a>
+<a href='<c:url value="/boards"/>'>게시물 보기</a>
 
 </body>
 </html>

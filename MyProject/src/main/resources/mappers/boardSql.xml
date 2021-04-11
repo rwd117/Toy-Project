@@ -5,19 +5,19 @@
 	<selectKey keyProperty="bid" order="BEFORE" resultType="Integer">
 		select board_seq.nextval from dual
 	</selectKey>
-		 insert into board(bid,btitle,bcontent,bwriter)
-		 values(#{bid},#{btitle},#{bcontent},#{bwriter})
+		 insert into board(bid,btitle,bcontent,bwriter,guideMa,guideLa)
+		 values(#{bid},#{btitle},#{bcontent},#{bwriter},#{guideMa},#{guideLa})
 	</insert>
 	
 	<select id="readboard" parameterType="Integer" resultType="kr.co.korea.beans.BoardBean">
-		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter 
+		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter,guideMa, guideLa
 		from board	
 		where bid=#{bid}	
 	</select>
 	
 	<select id="getboardlist" resultType="kr.co.korea.beans.BoardBean">
 		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter 
-		from board
+		from board order by bid desc
 	</select>
 	
 	<update id="updateboard" parameterType="kr.co.korea.beans.BoardBean">

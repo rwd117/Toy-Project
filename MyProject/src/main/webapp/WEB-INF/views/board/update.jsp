@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
-<script src="//code.jquery.com/jquery.min.js"></script>
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -16,7 +16,6 @@
 		<hr />
 		<!-- 게시물 기본 정보  -->
 		<h3>${board.bid}번게시물</h3>
-		<form action="updateok" method="post">
 		<input type="hidden" name="bid" id="bid" value="${board.bid}"/>
 		<table class="table">
 			<tr>
@@ -34,17 +33,15 @@
 				<td><input class="form-control" type="text" id="bwriter" name="bwriter" value="${board.bwriter }" disabled="disabled" /></td>
 				<td>작성 날짜 : ${board.bdate }</td>
 			</tr>
-			
 					
 			<tr>
 				<td>
-					<button class="btn btn-outline-success"  type="submit">게시물 수정</button>
+					<button class="btn btn-outline-success" type="button" onclick="return boardupdate();">게시물 수정</button>
 					<button class="btn btn-outline-success"  type="button" class="listgo">수정 취소</button>
 				</td>
 			</tr>
 		</table>
-		</form>
 </div>
-
+<script src="<c:url value="/resources/js/boardupdate.js"/>"></script>
 </body>
 </html>

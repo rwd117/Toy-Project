@@ -14,5 +14,7 @@ public class BoardBean {
 	private String bcontent;
 	private String bdate;
 	private String bwriter;
+	private String guideLa;
+	private String guideMa;
 	
 }
