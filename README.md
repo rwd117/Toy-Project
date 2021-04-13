@@ -14,4 +14,4 @@
 
 ## 구현기능
 
-+ 로그인,회원가입 (Security)
++ 로그인,회원가입 (Spring Security)
