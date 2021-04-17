@@ -12,7 +12,7 @@ import kr.co.korea.beans.MemberBean;
 import kr.co.korea.service.MemberService;
 
 @Controller
-@RequestMapping("/member/")
+@RequestMapping("/member")
 public class MemberController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
@@ -20,16 +20,22 @@ public class MemberController {
 	@Autowired
 	private MemberService memberservice;
 	
-	@GetMapping("join")
+	@GetMapping("/join")
 	public String join() {
 		logger.info("join");
 		return "/member/join";
 	}
 	
-	@RequestMapping(value="login")
+	@RequestMapping(value="/login")
 	public String login() {
 		
 		return "/member/login";
+	}
+	
+	@RequestMapping(value="/loginok")
+	public String loginok() {
+		
+		return "redirect:/";
 	}
 	
 	@PostMapping("joinok")

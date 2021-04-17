@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.korea.beans.BoardBean;
+import kr.co.korea.beans.Criteria;
 
 @Repository
 public class BoardDao {
@@ -23,8 +24,8 @@ public class BoardDao {
 		return sqltemp.selectOne("board.readboard",bid);
 	}
 	
-	public List<BoardBean> getboardlist(){
-		return sqltemp.selectList("board.getboardlist");
+	public List<BoardBean> getboardlist(Criteria cri){
+		return sqltemp.selectList("board.getboardlist",cri);
 	}
 	
 	public void updateBoard(BoardBean boardbean) {
@@ -33,6 +34,10 @@ public class BoardDao {
 	
 	public void deleteBoard(int bid) {
 		sqltemp.delete("board.deletebaord",bid);
+	}
+	
+	public int countBoard() {
+		return sqltemp.selectOne("board.countboard");
 	}
 	
 	

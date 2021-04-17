@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 <body>
 <div class="container" style="width : 1600px">
 	<section id="container" >
-	<form class="px-4 py-3" action="/loginok" method="POST">
+	<form class="px-4 py-3" action="<c:url value="/member/loginok"/>" method="POST">
         <table>
             <tbody>
                 <tr>

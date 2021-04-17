@@ -16,7 +16,7 @@
 		<form-login
         username-parameter="loginid"
         password-parameter="loginpwd"
-        login-processing-url="/loginok"
+        login-processing-url="/member/loginok"
         login-page="/member/login"
         authentication-failure-handler-ref="loginFailHandler"
         authentication-success-handler-ref="loginSuccessHandler"

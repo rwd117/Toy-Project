@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.korea.beans.BoardBean;
+import kr.co.korea.beans.Criteria;
 import kr.co.korea.dao.BoardDao;
 
 @Service
@@ -23,8 +24,8 @@ public class BoardService {
 		return boarddao.readboard(bid);
 	}
 	
-	public List<BoardBean> getboardlist(){
-		return boarddao.getboardlist();
+	public List<BoardBean> getboardlist(Criteria cri){
+		return boarddao.getboardlist(cri);
 	}
 	
 	public void updateBoard(BoardBean boardbean) {
@@ -33,6 +34,10 @@ public class BoardService {
 	
 	public void deleteBoard(int bid) {
 		boarddao.deleteBoard(bid);
+	}
+	
+	public int countBoard() {
+		return boarddao.countBoard();
 	}
 	
 }

@@ -23,57 +23,41 @@
 						</tr>
 					</thead>
  					<tbody id="tbody">
- 						
+ 						<c:forEach var="board" items="${list }">
+ 							<tr>
+ 							<td>${board.bid }</td>
+ 							<td><a href="<c:url value="/boards/${board.bid}" />">${board.btitle}</a></td>
+ 							<td>${board.bwriter}</td>
+ 							<td>0</td>
+ 							<td>${board.bdate}</td>
+ 							</tr>
+ 						</c:forEach>
  					</tbody>
 					
 				</table>
 				<hr/>
 		</section>
 		
-	</div>
-	<script>
-	$(function(){
-		boardlist();
-	});
-	function boardlist(){
+		<div class="col-md-4 container">
+			<ul class="pagination">
+  			 <c:if test="${pagemaker.prev }">
+    			<li>
+        			<a class="btn btn-outline-primary" href='<c:url value="/boards?page=${pagemaker.startPage-1 }"/>'>[이전]</a>
+    			</li>
+   			</c:if>
+  			 <c:forEach begin="${pagemaker.startPage }" end="${pagemaker.endPage }" var="pageNum">
+		    	<li>
+		        	<a class="btn btn-outline-primary" href='<c:url value="/boards?page=${pageNum}"/>'>${pageNum }</a>
+		    	</li>
+			   </c:forEach>
+			   <c:if test="${pagemaker.next && pagemaker.endPage >0 }">
+			    	<li>
+			        	<a class="btn btn-outline-primary" href='<c:url value="/boards?page=${pagemaker.endPage+1 }"/>'>[다음]</a>
+			    	</li>
+			   </c:if>
+			</ul>
+		</div>
 		
-		$.ajax({
-			url : getContextPath()+"/board",
-			type : "GET",
-			contentType : 'application/json',
-			success : function(data){
-				var list = "";
-				if(data.length){
-					list += "게시물이 없습니다.";
-				}else{
-					$(data).each(function(){
-						list += setList(data);
-					});
-				};
-				$('#tbody').html(list);
-			}, error : function(data){
-				
-			}
-		});
-	}
-	
-	function setList(a){
-		var list = "<tr>";
-		list += "<td>"+a.bid+"</td>";
-		list += "<td>"+a.btitle+"</td>";
-		list += "<td>"+a.bwriter+"</td>";
-		list += "<td>"+0+"</td>";
-		list += "<td>"+a.bdate+"</td>";
-		list += "</tr>";
-		return list;
-	}
-	
-	function getContextPath() {
-	    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
-	    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
-	} 
-	
-	
-	</script>
+	</div>
 </body>
 </html>

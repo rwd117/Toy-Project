@@ -15,9 +15,10 @@
 		where bid=#{bid}	
 	</select>
 	
-	<select id="getboardlist" resultType="kr.co.korea.beans.BoardBean">
+	<select id="getboardlist" resultType="kr.co.korea.beans.BoardBean" parameterType="kr.co.korea.beans.Criteria">
 		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter 
-		from board order by bid desc
+		from (select ROW_NUMBER() over(order by bid desc) as RNUM, board.* from board)board
+		where RNUM between #{rowStart} and #{rowEnd}
 	</select>
 	
 	<update id="updateboard" parameterType="kr.co.korea.beans.BoardBean">
@@ -30,4 +31,9 @@
 		delete from board
 		where bid=#{bid}
 	</delete>
+	
+	<select id="countboard" resultType="Integer">
+		select count(bid) from board 
+	</select>
+	
 </mapper>

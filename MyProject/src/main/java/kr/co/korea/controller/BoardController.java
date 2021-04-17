@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.korea.beans.BoardBean;
+import kr.co.korea.beans.Criteria;
+import kr.co.korea.beans.PageMaker;
 import kr.co.korea.service.BoardService;
 
 @Controller
@@ -24,18 +26,22 @@ public class BoardController {
 	private BoardService boardservice;
 
 	@GetMapping("")
-	public String list(Model model) {
+	public String list(Model model,Criteria cri) {
 		logger.info("boardlist");
 		
-		List<BoardBean> list = boardservice.getboardlist();
+		List<BoardBean> list = boardservice.getboardlist(cri);
 		
+		PageMaker pagemaker = new PageMaker();
+		pagemaker.setCri(cri);
+		pagemaker.setTotalCount(boardservice.countBoard());
+		
+		model.addAttribute("pagemaker",pagemaker);
 		model.addAttribute("list",list);
 		return "/board/list";
 	}
 	
 	@GetMapping("/{bid}")
 	public String read(@PathVariable int bid,Model model) {
-		
 		logger.info("boardread");
 		
 		BoardBean boardbean = boardservice.readboard(bid);
