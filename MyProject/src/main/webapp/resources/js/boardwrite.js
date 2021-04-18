@@ -1,6 +1,16 @@
 /**
  * 
  */
+ 
+ 	$('#listgo').click(function(){
+		var url = "http://localhost:8077/MyProject",
+			page = $('#page').val(),
+			perPageNum = $('#perPageNum').val();
+			
+		location.href = url + "/boards?"+
+						"page="+page+
+						"&perPageNum="+perPageNum;
+	});
 	function check(){
 		var title = $('#btitle').val(),
 			content = $('#bcontent').val(),

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,7 +27,7 @@ public class BoardController {
 	private BoardService boardservice;
 
 	@GetMapping("")
-	public String list(Model model,Criteria cri) {
+	public String list(Model model,@ModelAttribute("cri") Criteria cri) {
 		logger.info("boardlist");
 		
 		List<BoardBean> list = boardservice.getboardlist(cri);
@@ -41,7 +42,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/{bid}")
-	public String read(@PathVariable int bid,Model model) {
+	public String read(@PathVariable int bid,Model model,@ModelAttribute("cri") Criteria cri) {
 		logger.info("boardread");
 		
 		BoardBean boardbean = boardservice.readboard(bid);
@@ -50,13 +51,13 @@ public class BoardController {
 	}
 	
 	@GetMapping("/newBoard")
-	public String write() {
+	public String write(@ModelAttribute("cri") Criteria cri) {
 		logger.info("newPost");
 		return "/board/write";
 	}
 
 	@GetMapping("/newBoard/{bid}")
-	public String update(@PathVariable int bid,Model model,String type) {
+	public String update(@PathVariable int bid,Model model,String type,@ModelAttribute("cri") Criteria cri) {
 		logger.info("Put,Delete view");
 		BoardBean boardbean = boardservice.readboard(bid);
 		model.addAttribute("board",boardbean);

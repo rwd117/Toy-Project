@@ -12,8 +12,9 @@
 <body>
 <div class="container">
 		
-		<a class="alistBtn" href="<c:url value="/board/list"/>">[게시판으로]</a>
-		<hr />
+		<input type="hidden" id="page" name="page" value="${cri.page }">
+			<input type="hidden" id="perPageNum" name="perPageNum" value="${cri.perPageNum }">
+		<hr/>
 		<!-- 게시물 기본 정보  -->
 		<h3>${board.bid}번게시물</h3>
 		<input type="hidden" name="bid" id="bid" value="${board.bid}"/>
@@ -38,6 +39,7 @@
 				<td>
 					<button class="btn btn-outline-success" type="button" onclick="return boardupdate();">게시물 수정</button>
 					<button class="btn btn-outline-success"  type="button" class="listgo">수정 취소</button>
+					<button class="btn btn-outline-success" type="button" id="listgo">게시판으로</button>
 				</td>
 			</tr>
 		</table>

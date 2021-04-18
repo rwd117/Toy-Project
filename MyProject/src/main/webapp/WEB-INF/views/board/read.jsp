@@ -17,9 +17,15 @@
 			<a href="<c:url value="/boards/newBoard/${board.bid}?type=edit"/>">[게시물 수정]</a> 
 			<a href="<c:url value="/boards/newBoard/${board.bid}?type=check"/>">[게시물 삭제]</a>		
 		</c:if>
-		<a class="alistBtn" href="<c:url value="/boards"/>">[게시판으로]</a>
+		
+		
+		<input type="hidden" id="page" name="page" value="${cri.page }">
+		<input type="hidden" id="perPageNum" name="perPageNum" value="${cri.perPageNum }">
+		<input type="hidden" id="guideLa" name="guideLa" value="${board.guideLa }">
+		<input type="hidden" id="guideMa" name="guideMa" value="${board.guideMa }">
 		<hr />
 		<!-- 게시물 기본 정보  -->
+		<button class="btn btn-outline-success" type="button" id="listgo">게시판으로</button>
 		<h3>${bid}번게시물</h3>
 		<table class="table">
 			<tr>
@@ -41,47 +47,13 @@
 			
 		</table>
 			<div id="staticMap" style="width:600px;height:350px;"></div>    
-
 		<hr />
-		<div class="col-md-6"><!-- 댓글 작성 div -->
-			<label for="reply_writer">작성자 :</label>
-			 <input type="text"	class="form-control" id="reply_writer" name="reply_writer"><br />
-			<label for="reply_content">댓글 내용 :</label>
-			<textarea class="form-control" id="reply_content" name="reply_content"></textarea>
-			<button type="button" class="btn btn-outline-success" id="replywriteBtn">댓글 작성</button>
-		</div>
+		
 		<br/>
 		<hr/>
 
-		<div class="container"><!-- 댓글이 들어갈 div -->
-			<div id="replylist"></div>
-		</div>
-
 	</div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc91527cb88d7d84ce36ba29e47d1562&libraries=services"></script>
-	<script type="text/javascript">
-	
-	var guideLa = ${board.guideLa},
-	guideMa = ${board.guideMa};
-	// 이미지 지도에서 마커가 표시될 위치입니다 
-	var markerPosition  = new kakao.maps.LatLng(guideLa, guideMa); 
-
-	// 이미지 지도에 표시할 마커입니다
-	// 이미지 지도에 표시할 마커는 Object 형태입니다	
-	var marker = {
-    	position: markerPosition
-	};
-
-	var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
-    	staticMapOption = { 
-        	center: new kakao.maps.LatLng(guideLa, guideMa), // 이미지 지도의 중심좌표
-        	level: 3, // 이미지 지도의 확대 레벨
-        	marker: marker // 이미지 지도에 표시할 마커 
-    	};    
-
-	// 이미지 지도를 생성합니다
-	var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
-
-	</script>
+	<script src="<c:url value="/resources/js/boardread.js" />"></script>
 </body>
 </html>

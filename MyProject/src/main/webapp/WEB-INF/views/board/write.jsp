@@ -17,6 +17,8 @@
 		<h2>글 작성</h2>
 			<input type="hidden" id="guideMa" name="guideMa" value="">
 			<input type="hidden" id="guideLa" name="guideLa" value="">
+			<input type="hidden" id="page" name="page" value="${cri.page }">
+			<input type="hidden" id="perPageNum" name="perPageNum" value="${cri.perPageNum }">
 			<table class="table">
 				<tr>
 					<td>제목</td>
@@ -36,7 +38,7 @@
 				<tr>
 					<td>
 						<button class="btn btn-outline-success" type="submit" onclick="return check();">작성</button>
-						<button class="btn btn-outline-success" type="button" class="listgo">작성글 지우기</button>
+						<button class="btn btn-outline-success" type="button" id="listgo">게시판으로</button>
 					</td>
 				</tr>
 			</table>

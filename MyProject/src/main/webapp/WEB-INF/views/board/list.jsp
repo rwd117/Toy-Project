@@ -26,7 +26,7 @@
  						<c:forEach var="board" items="${list }">
  							<tr>
  							<td>${board.bid }</td>
- 							<td><a href="<c:url value="/boards/${board.bid}" />">${board.btitle}</a></td>
+ 							<td><a href='<c:url value="/boards/${board.bid}?page=${cri.page}&perPageNum=${cri.perPageNum}" />'>${board.btitle}</a></td>
  							<td>${board.bwriter}</td>
  							<td>0</td>
  							<td>${board.bdate}</td>
@@ -36,6 +36,10 @@
 					
 				</table>
 				<hr/>
+		</section>
+		
+		<section>
+			<a href='<c:url value="/boards/newBoard"/>'>게시물 작성</a>
 		</section>
 		
 		<div class="col-md-4 container">
