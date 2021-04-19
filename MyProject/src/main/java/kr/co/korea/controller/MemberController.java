@@ -28,13 +28,13 @@ public class MemberController {
 	
 	@RequestMapping(value="/login")
 	public String login() {
-		
+		logger.info("login");
 		return "/member/login";
 	}
 	
 	@RequestMapping(value="/loginok")
 	public String loginok() {
-		
+		logger.info("loginok");
 		return "redirect:/";
 	}
 	

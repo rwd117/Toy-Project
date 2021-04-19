@@ -14,7 +14,7 @@ function boarddelete(){
 	var bid = $('#bid').val();
 	
 	$.ajax({
-		url : getContextPath()+"/"+ bid,
+		url : getContextPath()+"/boards/"+ bid,
 		type : 'DELETE',
 		contentType : 'application/json',
 		success : function(){

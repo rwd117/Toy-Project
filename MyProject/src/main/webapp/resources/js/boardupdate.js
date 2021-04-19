@@ -20,7 +20,7 @@
 				'bcontent' : bcontent
 			};
 		$.ajax({
-			url : getContextPath()+"/" + bid,
+			url : getContextPath()+"/boards/" + bid,
 			type : 'PUT',
 			contentType : 'application/json',
 			data : JSON.stringify(data),

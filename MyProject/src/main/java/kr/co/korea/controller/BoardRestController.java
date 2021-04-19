@@ -31,9 +31,7 @@ public class BoardRestController {
 		logger.info("writePost");
 		
 		String username=currentUserName();
-		
 		boardservice.writeboard(boardbean,username);
-		
 		return boardbean.getBid();
 	}
 	

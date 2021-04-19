@@ -49,13 +49,19 @@
 	};
 	
 	function sendAjax(data){
+		var page = $('#page').val(),
+			perPageNum = $('#perPageNum').val();
+			
+			
 		$.ajax({
-			url : getContextPath(),
+			url : getContextPath()+"/boards",
 			type : 'POST',
 			contentType: 'application/json',
 			data : JSON.stringify(data),
 			success : function(bid){
-				 location.href = getContextPath() +"/"+bid;
+				 location.href = getContextPath() +"/boards/"+bid+
+				 		"?page="+page+
+						"&perPageNum="+perPageNum;
 			}, error : function(bid){
 				console.log("err " + bid);
 			}
