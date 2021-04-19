@@ -16,7 +16,7 @@
 	// 이미지 지도에서 마커가 표시될 위치입니다 
 	var markerPosition  = new kakao.maps.LatLng(guideLa, guideMa); 
 
-	// 이미지 지도에 표시할 마커입니다
+	// 이미지 지도에 표시할 마커입니다 
 	// 이미지 지도에 표시할 마커는 Object 형태입니다	
 	var marker = {
     	position: markerPosition

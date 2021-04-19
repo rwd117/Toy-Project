@@ -66,5 +66,10 @@ public class BoardController {
 		else return "board/delete";
 		
 	}
+	
+	@GetMapping("/notwriter")
+	public String notwriter() {
+		return "board/NotWriter";
+	}
 
 }

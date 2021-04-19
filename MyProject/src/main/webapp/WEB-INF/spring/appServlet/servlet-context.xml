@@ -31,4 +31,10 @@
 
 	<resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"></resources>
 	
+	<interceptors>
+		<interceptor>
+		<mapping path="/boards/newBoard/*"/>
+    	<beans:bean class="kr.co.korea.interceptor.WriterInterceptor"/>
+		</interceptor>
+	</interceptors>
 </beans:beans>
