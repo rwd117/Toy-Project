@@ -13,12 +13,19 @@
 </head>
 <body>
 <div class="container">
-		<c:if test="${user == board.bwriter}">
+		<sec:authorize access="isAuthenticated()">
+			<sec:authentication property="principal" var="user" />
+			<form id="logout-form" action='<c:url value='/logout'/>' method="POST">
+				<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}" />
+			</form>
+			<p>${user}님,반갑습니다.</p>
+			<a href="#" onclick="document.getElementById('logout-form').submit();">Sign out</a>
+			<c:if test="${user == board.bwriter}">
 			<a href="<c:url value="/boards/newBoard/${board.bid}?type=edit"/>">[게시물 수정]</a> 
 			<a href="<c:url value="/boards/newBoard/${board.bid}?type=check"/>">[게시물 삭제]</a>		
-		</c:if>
-		
-		
+			</c:if>
+		</sec:authorize>
+
 		<input type="hidden" id="page" name="page" value="${cri.page }">
 		<input type="hidden" id="perPageNum" name="perPageNum" value="${cri.perPageNum }">
 		<input type="hidden" id="guideLa" name="guideLa" value="${board.guideLa }">

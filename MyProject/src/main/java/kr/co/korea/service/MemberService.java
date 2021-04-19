@@ -15,4 +15,8 @@ public class MemberService {
 	public void inserMember(MemberBean memberbean) {
 		memberdao.inserMember(memberbean);
 	}
+	
+	public int idCheck(String mid) {
+		return memberdao.idCheck(mid);
+	}
 }

@@ -15,4 +15,8 @@ public class MemberDao {
 	public void inserMember(MemberBean memberbean) {
 		sqltemp.insert("member.joinMember",memberbean);
 	}
+	
+	public int idCheck(String mid) {
+		return sqltemp.selectOne("member.idcheck",mid);
+	}
 }

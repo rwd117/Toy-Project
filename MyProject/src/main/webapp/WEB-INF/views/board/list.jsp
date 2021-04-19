@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,14 @@
 </head>
 <body>
 	<div class="container">
+<sec:authorize access="isAuthenticated()">
+<sec:authentication property="principal" var="user"/>
+<form id="logout-form" action='<c:url value='/logout'/>' method="POST">
+   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+</form>
+<p>${user}님, 반갑습니다.</p>
+<a href="#" onclick="document.getElementById('logout-form').submit();">Sign out</a>
+</sec:authorize>
 		<section id="container">
 				<table class="table table-hover">
 					<thead>

@@ -11,4 +11,8 @@
 		values(#{mid},#{mpwd},#{mname},#{maddress},#{maddress2},#{mpost},#{memail})
 	</insert>
 	
+	<select id="idcheck" parameterType="String" resultType="Integer">
+		select count(mid) from member where mid=#{mid}
+	</select>
+	
 </mapper>
