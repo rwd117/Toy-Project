@@ -53,7 +53,7 @@
 			
 			
 		</table>
-			<div id="staticMap" style="width:600px;height:350px;"></div>    
+			<div id="map" style="width:600px;height:350px;"></div>    
 		<hr />
 		
 		<br/>

@@ -1,34 +1,36 @@
 /**
  * 
  */
-	$('#listgo').click(function(){
-		var url = "http://localhost:8077/MyProject",
-			page = $('#page').val(),
-			perPageNum = $('#perPageNum').val();
-			
-		location.href = url + "/boards?"+
-						"page="+page+
-						"&perPageNum="+perPageNum;
-	});
-	
-	var guideLa = $('#guideLa').val(),
-	guideMa = $('#guideMa').val();
-	// 이미지 지도에서 마커가 표시될 위치입니다 
-	var markerPosition  = new kakao.maps.LatLng(guideLa, guideMa); 
+$('#listgo').click(function() {
+	var url = "http://localhost:8077/MyProject",
+		page = $('#page').val(),
+		perPageNum = $('#perPageNum').val();
 
-	// 이미지 지도에 표시할 마커입니다 
-	// 이미지 지도에 표시할 마커는 Object 형태입니다	
-	var marker = {
-    	position: markerPosition
+	location.href = url + "/boards?" +
+		"page=" + page +
+		"&perPageNum=" + perPageNum;
+});
+
+var guideLa = $('#guideLa').val(),
+	guideMa = $('#guideMa').val();
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	mapOption = {
+		center: new kakao.maps.LatLng(guideLa, guideMa), // 지도의 중심좌표
+		level: 3 // 지도의 확대 레벨
 	};
 
-	var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
-    	staticMapOption = { 
-        	center: new kakao.maps.LatLng(guideLa, guideMa), // 이미지 지도의 중심좌표
-        	level: 3, // 이미지 지도의 확대 레벨
-        	marker: marker // 이미지 지도에 표시할 마커 
-    	};    
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-	// 이미지 지도를 생성합니다
-	var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+// 마커가 표시될 위치입니다 
+var markerPosition = new kakao.maps.LatLng(guideLa, guideMa);
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+	position: markerPosition
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+
+
 
