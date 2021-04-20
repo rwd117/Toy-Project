@@ -54,18 +54,18 @@
 		<div class="col-md-4 container">
 			<ul class="pagination">
   			 <c:if test="${pagemaker.prev }">
-    			<li>
-        			<a class="btn btn-outline-primary" href='<c:url value="/boards?page=${pagemaker.startPage-1 }"/>'>[이전]</a>
+    			<li class="page-item">
+        			<a class="btn btn-outline-primary page-link" href='<c:url value="/boards?page=${pagemaker.startPage-1 }"/>'>[이전]</a>
     			</li>
    			</c:if>
   			 <c:forEach begin="${pagemaker.startPage }" end="${pagemaker.endPage }" var="pageNum">
-		    	<li>
-		        	<a class="btn btn-outline-primary" href='<c:url value="/boards?page=${pageNum}"/>'>${pageNum }</a>
+		    	<li class="page-item">
+		        	<a class="btn btn-outline-primary page-link" href='<c:url value="/boards?page=${pageNum}"/>'>${pageNum }</a>
 		    	</li>
 			   </c:forEach>
 			   <c:if test="${pagemaker.next && pagemaker.endPage >0 }">
-			    	<li>
-			        	<a class="btn btn-outline-primary" href='<c:url value="/boards?page=${pagemaker.endPage+1 }"/>'>[다음]</a>
+			    	<li class="page-item">
+			        	<a class="btn btn-outline-primary page-link" href='<c:url value="/boards?page=${pagemaker.endPage+1 }"/>'>[다음]</a>
 			    	</li>
 			   </c:if>
 			</ul>

@@ -3,14 +3,23 @@
  */
 function checkUserIdExist(){
 	var idurl = "/member/idcheck/",
-		mid = $('#mid').val();
+		mid = $('#mid').val(),
+		idrule = /^[a-z0-9]{4,12}$/,
+		chk_num = mid.search(/[0-9]/g);
+    	chk_eng = mid.search(/[a-z]/ig);
+	
 	if(mid.length <4){
-			alert("아이디는 영문/숫자포함 4자 이상이어야 합니다.");
+			alert("아이디는 4자 이상이어야 합니다.");
 			return false;
 			
 	}
 	if(mid.length >12){
-		alert("아이디는 영문/숫자포함 12자까지 입력 할 수 있습니다.");
+		alert("아이디는 12자까지 입력 할 수 있습니다.");
+		return false;
+			
+	}
+	if(!idrule.test(mid) || chk_num < 0 || chk_eng < 0){
+		alert("아이디는 영어/숫자로만 입력 할 수 있습니다.");
 		return false;
 			
 	}
@@ -60,7 +69,8 @@ function check(){
 	      	memail= $('#memail').val(),
 	      	mpost= $('#mpost').val(),
 	      	maddress= $('#maddress').val(),
-	      	maddress2= $('#maddress2').val();
+	      	maddress2= $('#maddress2').val(),
+	      	pwdrule = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/;
 	      
 	      if(mpw.length <6){
 				alert("비밀번호는 6자 이상이어야 합니다.");
@@ -72,6 +82,11 @@ function check(){
 				return false;
 				
 			}
+			
+			if(!rule.test(mpw)){
+ 				alert("비밀번호는 대소문자,숫자,특수문자가 들어갸야합니다.");
+ 				return false;
+ 			}
 			
 	      if(mpw == null  || mpw.trim() == ""
 			|| mpw2 == null  || mpw2.trim() == ""
@@ -116,15 +131,23 @@ function getContextPath() {
 }
 
 $("#mid").keyup(function(){
-	var mid = $('#mid').val();
+	var mid = $('#mid').val(),
+		idrule = /^[a-z0-9]{4,12}$/,
+		chk_num = mid.search(/[0-9]/g);
+    	chk_eng = mid.search(/[a-z]/ig);
+    	
 	if(mid.length<4 || mid.length > 12){
 		$('#mIdChkMsg').html("아이디는 4~12글자 입니다.");
  	}else{
  		$('#mIdChkMsg').html("");
  	}
+ 	
+ 	if(!idrule.test(mid)||chk_num < 0 || chk_eng <0){
+ 		$('#mIdChkMsg').html("아이디는 영소문자/숫자로만 이루어져야 합니다.");
+ 	}
 });
 
-$("#mpw2").keyup(function(){
+$("#mpwd2").keyup(function(){
  	var mPw = $("#mpwd").val(); // 사용자가 mPw에 입력한 값
  	var mPwChk = $("#mpwd2").val(); // 사용자가 mPwChk에 입력한 값
  	if(mPw!=mPwChk){
@@ -132,12 +155,22 @@ $("#mpw2").keyup(function(){
  	}else{
  		$('#mpwChkMsg').html("");
  	}
-	if(mPw.length < 9 || mPw.length > 12){
-		$('#mpwChkMsg').html("비밀번호는 6~12자 입니다.");
+ }); // mPwChk
+
+$("#mpwd").keyup(function(){
+ 	var mPw = $("#mpwd").val(); // 사용자가 mPw에 입력한 값
+ 	var rule = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/;
+	if(mPw.length < 6 || mPw.length > 12){
+		$('#mpwPatternChkMsg').html("비밀번호는 6~12자 입니다.");
  	}else{
- 		$('#mpwChkMsg').html("");
+ 		$('#mpwPatternChkMsg').html("");
+ 	}
+ 	if(!rule.test(mPw)){
+ 		$('#mpwPatternChkMsg').html("비밀번호는 대소문자,숫자,특수문자가 들어갸야합니다.");
  	}
  }); // mPwChk
+  
+ 
 
  $("#mname").keyup(function(){ // 이름 유효성은 공백 유무만 검사
  	var mname = $("#mname").val(); // 사용자가 mName에 입력한 값

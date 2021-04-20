@@ -30,7 +30,7 @@ public class WriterInterceptor implements HandlerInterceptor{
 		
 		BoardBean boardbean = boardservice.readboard(bid);
 		
-		if(user != boardbean.getBwriter()) {
+		if(!user.equals(boardbean.getBwriter())) {
 			String rootPath = request.getContextPath();
 			response.sendRedirect(rootPath+"/boards/notwriter");
 			return false;

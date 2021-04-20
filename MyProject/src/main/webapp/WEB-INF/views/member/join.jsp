@@ -5,16 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-		<div class="container">
-		<section class="container">
+	<div class="container"  style="display: inline-block;text-align: center;" >
+		<section class="col-md-auto" style="display: inline-block;text-align: center;">
 			<form action='<c:url value="/member/joinok"/>' method="post" onsubmit="return check();">
 			<input type="hidden" id="userIdExist" name="userIdExist" value="">
+			 <div class="input-group input-group-lg">
 				<table>
 					<tr>
 						<th>
@@ -23,12 +24,12 @@
 					</tr>
 					<tr>
 						<td>
-							아이디 <input class="form-control" type="text" id="mid" name="mid" required="required" placeholder="영문소문자/숫자 4~12자"  >
+							아이디 <input class="form-control" type="text" id="mid" name="mid" required="required" placeholder="영문소문자/숫자 4~12자" style="width : 400px"  >
 							<button class="btn btn-primary" onclick="return checkUserIdExist()">중복확인</button>
 						</td>
 					</tr>
 					<tr>
-						<td	class="msg" id="mIdChkMsg">
+						<td	class="msg" id="mIdChkMsg" style="color:red">
 							&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
@@ -38,7 +39,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="msg" id="mpwPatternChkMsg">
+						<td class="msg" id="mpwPatternChkMsg" style="color:red">
 							&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
@@ -48,7 +49,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td	class="msg" id="mpwChkMsg">
+						<td	class="msg" id="mpwChkMsg" style="color:red">
 							&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
@@ -58,7 +59,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td	class="msg" id="mnameChkMsg">
+						<td	class="msg" id="mnameChkMsg" style="color:red">
 							&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
@@ -68,39 +69,40 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="msg" id="memailChkMsg">
+						<td class="msg" id="memailChkMsg" style="color:red">
 							&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td class="noborder">
-							주소 <a id="addressBtn">우편번호 찾기</a>
+							주소 <a id="addressBtn" class="btn btn-link" style="cursor:pointer">우편번호 찾기</a>
 						</td>
 					</tr>
 					<tr>
 						<td class="noborder">
-							<input type="text" class="mpost" id="mpost" name="mpost" placeholder="우편번호" readonly>							
+							<input type="text" class="form-control mpost" id="mpost" name="mpost" placeholder="우편번호" readonly>							
 						</td>
 					</tr>
 					<tr>
 						<td class="noborder">
-							<input type="text" class="address" id="maddress" name="maddress" placeholder="주소" readonly>		
+							<input type="text" class="form-control address" id="maddress" name="maddress" placeholder="주소" readonly>		
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" class="address" id="maddress2" name="maddress2" placeholder="상세주소">							
+							<input type="text" class="form-control address" id="maddress2" name="maddress2" placeholder="상세주소">							
 						</td>
 					</tr>
 					<tr>
-						<td	class="msg" id="maddressChkMsg">
+						<td	class="msg" id="maddressChkMsg" style="color:red">
 							&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 				</table>
+				</div>
 				<br>
 				<br>
-				<input type="submit" class="btn" value="회원가입"/>
+				<input type="submit" class="btn btn-outline-secondary" value="회원가입"/>
 			</form>
 			</section>
 		</div>

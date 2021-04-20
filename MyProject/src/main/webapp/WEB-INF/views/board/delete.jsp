@@ -14,6 +14,8 @@
 		
 		<input type="hidden" id="page" name="page" value="${cri.page }">
 			<input type="hidden" id="perPageNum" name="perPageNum" value="${cri.perPageNum }">
+			<input type="hidden" id="guideLa" name="guideLa" value="${board.guideLa }">
+		<input type="hidden" id="guideMa" name="guideMa" value="${board.guideMa }">
 		<hr />
 		<!-- 게시물 기본 정보  -->
 		<h3>${board.bid}번게시물</h3>
@@ -39,12 +41,14 @@
 			<tr>
 				<td>
 					<button class="btn btn-outline-success"  type="button" onclick="return boarddelete();">게시물 삭제</button>
-					<button class="btn btn-outline-success"  type="button" class="listgo">삭제취소</button>
 					<button class="btn btn-outline-success" type="button" id="listgo">게시판으로</button>
 				</td>
 			</tr>
 		</table>
+		<div id="map" style="width:600px;height:350px;"></div>    
+		<hr />
 </div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc91527cb88d7d84ce36ba29e47d1562&libraries=services"></script>
 <script src="<c:url value="/resources/js/boarddelete.js"/>"></script>
 </body>
 </html>
