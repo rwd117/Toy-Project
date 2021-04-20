@@ -5,7 +5,7 @@
 
 ## 기술스택
 
-+ Backend: Spring(Security) | Java 8 | Oracle | Mybatis | Tomcat 9.0 | 
++ Backend: Spring(MVC,Security) | Java 8 | Oracle | Mybatis | Tomcat 9.0 | 
 
 + Frontend: JavaScript(jQuery), Bootstrap
 
