@@ -16,5 +16,6 @@ public class BoardBean {
 	private String bwriter;
 	private String guideLa;
 	private String guideMa;
+	private int blike;
 	
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="like">
+
+	<select id="likecheck" resultType="String" parameterType="kr.co.korea.beans.LikeBean">
+		select 'ok' from dual where exists (select ltlike from liketable where ltmid=#{ltmid} and ltbid=#{ltbid})
+	</select>
+	
+	<select id="ltlikecheck" resultType="Integer" parameterType="kr.co.korea.beans.LikeBean">
+		select ltlike from liketable where ltmid=#{ltmid} and ltbid=#{ltbid}
+	</select>
+
+</mapper>

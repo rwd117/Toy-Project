@@ -27,7 +27,7 @@
 							<th>게시글 번호</th>
 							<th>게시글 제목</th>
 							<th>게시글 작성자</th>
-							<th>게시글 조회수</th>
+							<th>좋아요</th>
 							<th>작성 날짜</th>
 						</tr>
 					</thead>
@@ -37,7 +37,7 @@
  							<td>${board.bid }</td>
  							<td><a href='<c:url value="/boards/${board.bid}?page=${cri.page}&perPageNum=${cri.perPageNum}" />'>${board.btitle}</a></td>
  							<td>${board.bwriter}</td>
- 							<td>0</td>
+ 							<td>${board.blike }</td>
  							<td>${board.bdate}</td>
  							</tr>
  						</c:forEach>

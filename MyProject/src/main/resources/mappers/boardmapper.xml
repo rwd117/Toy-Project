@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<insert id="writeboard" parameterType="kr.co.korea.beans.BoardBean">
+	<selectKey keyProperty="bid" order="BEFORE" resultType="Integer">
+		select board_seq.nextval from dual
+	</selectKey>
+		 insert into board(bid,btitle,bcontent,bwriter,guideMa,guideLa)
+		 values(#{bid},#{btitle},#{bcontent},#{bwriter},#{guideMa},#{guideLa})
+	</insert>
+	
+	<select id="readboard" parameterType="Integer" resultType="kr.co.korea.beans.BoardBean">
+		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter,guideMa, guideLa
+		from board	
+		where bid=#{bid}	
+	</select>
+	
+	<select id="getboardlist" resultType="kr.co.korea.beans.BoardBean" parameterType="kr.co.korea.beans.Criteria">
+		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter,blike 
+		from (select ROW_NUMBER() over(order by bid desc) as RNUM, board.* from board)board
+		where RNUM between #{rowStart} and #{rowEnd}
+	</select>
+	
+	<update id="updateboard" parameterType="kr.co.korea.beans.BoardBean">
+		update board 
+		set bcontent=#{bcontent},btitle=#{btitle} 
+		where bid=#{bid}
+	</update>
+	
+	<delete id="deletebaord" parameterType="Integer">
+		delete from board
+		where bid=#{bid}
+	</delete>
+	
+	<select id="countboard" resultType="Integer">
+		select count(bid) from board 
+	</select>
+	
+</mapper>
