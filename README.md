@@ -61,7 +61,14 @@
 <details>
     <summary>게시물 수정</summary>
   
-![image](https://user-images.githubusercontent.com/69449157/115558770-06818600-a2ee-11eb-8742-5b8ed09921f1.png)
+![image](https://user-images.githubusercontent.com/69449157/115958969-bb14e500-a544-11eb-948e-6ab50f8211f9.png)
+
+</details>
+
+<details>
+    <summary>게시물 삭제</summary>
+  
+![image](https://user-images.githubusercontent.com/69449157/115958992-d97ae080-a544-11eb-9aad-9915d2a5cc28.png)
 
 </details>
 
