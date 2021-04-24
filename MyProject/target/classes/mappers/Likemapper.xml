@@ -15,10 +15,18 @@
 		select ltlike from liketable where ltmid=#{ltmid} and ltbid=#{ltbid}
 	</select>
 	
+	<select id="">
+		
+	</select>
+	
 	<update id="likeupdate" parameterType="kr.co.korea.beans.LikeBean">
 		update liketable
 		set <include refid="cal"></include>
 		where ltmid=#{ltmid} and ltbid=#{ltbid}
+		
+		<selectKey keyProperty="allltlike" order="AFTER" resultType="Integer">
+			select count(ltlike) from liketable where ltbid=#{ltbid} and ltlike=1
+		</selectKey>
 	</update>
 	
 	<sql id="cal">

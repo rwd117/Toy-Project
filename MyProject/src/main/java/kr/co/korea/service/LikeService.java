@@ -24,8 +24,9 @@ public class LikeService {
 		likedao.likeinsert(likebean);
 	}
 	
-	public void likeupdate(LikeBean likebean) {
+	public int likeupdate(LikeBean likebean) {
 		likedao.likeupdate(likebean);
+		return likebean.getAllltlike();
 	}
 	
 }

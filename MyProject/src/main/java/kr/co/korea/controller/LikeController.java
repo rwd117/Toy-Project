@@ -6,7 +6,6 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,15 +24,17 @@ public class LikeController {
 	private LikeService likeservice;
 	
 	@PutMapping("/likeupdate")
-	public Map<String,String> likeupdate(@RequestBody LikeBean likebean){
+	public Map<String,Object> likeupdate(@RequestBody LikeBean likebean){
 		logger.info("likeupdate");
 		
-		Map<String,String> map = new HashMap<String, String>();
+		Map<String,Object> map = new HashMap<String, Object>();
 		
 		try {
 			likeservice.likeupdate(likebean);
-			map.put("result", "success");
+			int like = likebean.getAllltlike();
 			
+			map.put("result", "success");
+			map.put("like", like);
 		}catch(Exception e) {
 			e.printStackTrace();
 			map.put("result", "fail");

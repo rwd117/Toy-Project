@@ -15,7 +15,7 @@ $('#likebtn').click(function(){
 		likeupdate();
 	});
 	
-	function likeupdate(ExitstCheck){
+	function likeupdate(){
 		var root = getContextPath(),
 		likeurl = "/like/likeupdate",
 		mid = $('#mid').val(),
@@ -31,15 +31,17 @@ $('#likebtn').click(function(){
 		contentType: 'application/json',
 		data : JSON.stringify(data),
 		success : function(result){
-			console.log("수정" + result.result);
+			console.log("수정" + result.like);
 			if(count == 1){
 				console.log("좋아요 취소");
 				 $('#likecheck').val(0);
 				 $('#likebtn').attr('class','btn btn-light');
+				 $('#likecount').html(result.like);
 			}else if(count == 0){
 				console.log("좋아요!");
 				$('#likecheck').val(1);
 				$('#likebtn').attr('class','btn btn-danger');
+				$('#likecount').html(result.like);
 			}
 		}, error : function(result){
 			console.log("에러" + result.result)

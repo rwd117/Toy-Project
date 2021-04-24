@@ -50,7 +50,8 @@
 							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
 						</c:when>
-					</c:choose>					
+					</c:choose>	
+					<span id="likecount">${board.blike }</span>				
 				</td>
 
 			</tr>

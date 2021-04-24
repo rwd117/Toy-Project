@@ -21,11 +21,12 @@ public class LikeDao {
 	}
 	
 	public void likeinsert(LikeBean likebean) {
-		sqltemp.selectOne("like.likeinsert",likebean);
+		sqltemp.insert("like.likeinsert",likebean);
 	}
 	
-	public void likeupdate(LikeBean likebean) {
-		sqltemp.selectOne("like.likeupdate",likebean);
+	public int likeupdate(LikeBean likebean) {
+		sqltemp.update("like.likeupdate",likebean);
+		return likebean.getAllltlike();
 	}
 	
 }

@@ -10,13 +10,14 @@
 	</insert>
 	
 	<select id="readboard" parameterType="Integer" resultType="kr.co.korea.beans.BoardBean">
-		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter,guideMa, guideLa
+		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter,guideMa, guideLa,
+		(select count(ltlike) from liketable where ltbid=#{bid} and ltlike=1)as blike
 		from board	
 		where bid=#{bid}	
 	</select>
 	
 	<select id="getboardlist" resultType="kr.co.korea.beans.BoardBean" parameterType="kr.co.korea.beans.Criteria">
-		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter,blike 
+		select bid,btitle,bcontent,to_char(bdate,'YYYY-MM-DD') as bdate ,bwriter,(select count(ltlike) from liketable where ltbid=bid and ltlike=1)as blike   
 		from (select ROW_NUMBER() over(order by bid desc) as RNUM, board.* from board)board
 		where RNUM between #{rowStart} and #{rowEnd}
 	</select>
