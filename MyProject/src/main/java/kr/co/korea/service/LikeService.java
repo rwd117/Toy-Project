@@ -12,12 +12,20 @@ public class LikeService {
 	@Autowired
 	private LikeDao likedao;
 	
-	public String likeCheck(LikeBean likebean) {
-		return likedao.likeCheck(likebean);
+	public int ltlikecount(LikeBean likebean) {
+		return likedao.ltlikecount(likebean);
 	}
 	
-	public int ltlikeCheck(LikeBean likebean) {
-		return likedao.ltlikeCheck(likebean);
+	public int ltlikegetinfo(LikeBean likebean) {
+		return likedao.ltlikegetinfo(likebean);
+	}
+	
+	public void likeinsert(LikeBean likebean) {
+		likedao.likeinsert(likebean);
+	}
+	
+	public void likeupdate(LikeBean likebean) {
+		likedao.likeupdate(likebean);
 	}
 	
 }

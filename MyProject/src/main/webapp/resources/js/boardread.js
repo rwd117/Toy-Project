@@ -11,6 +11,49 @@ $('#listgo').click(function() {
 		"&perPageNum=" + perPageNum;
 });
 
+$('#likebtn').click(function(){
+		likeupdate();
+	});
+	
+	function likeupdate(ExitstCheck){
+		var root = getContextPath(),
+		likeurl = "/like/likeupdate",
+		mid = $('#mid').val(),
+		bid = $('#bid').val(),
+		count = $('#likecheck').val(),
+		data = {"ltmid" : mid,
+				"ltbid" : bid,
+				"count" : count};
+		
+	$.ajax({
+		url : root + likeurl,
+		type : 'PUT',
+		contentType: 'application/json',
+		data : JSON.stringify(data),
+		success : function(result){
+			console.log("수정" + result.result);
+			if(count == 1){
+				console.log("좋아요 취소");
+				 $('#likecheck').val(0);
+				 $('#likebtn').attr('class','btn btn-light');
+			}else if(count == 0){
+				console.log("좋아요!");
+				$('#likecheck').val(1);
+				$('#likebtn').attr('class','btn btn-danger');
+			}
+		}, error : function(result){
+			console.log("에러" + result.result)
+		}
+		
+		});
+	};
+	
+	function getContextPath() {
+	    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+	    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+	} 
+	
+
 var guideLa = $('#guideLa').val(),
 	guideMa = $('#guideMa').val();
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

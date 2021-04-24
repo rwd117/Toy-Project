@@ -12,12 +12,20 @@ public class LikeDao {
 	@Autowired
 	private SqlSessionTemplate sqltemp;
 	
-	public String likeCheck(LikeBean likebean) {
-		return sqltemp.selectOne("like.likecheck",likebean);
+	public int ltlikecount(LikeBean likebean) {
+		return sqltemp.selectOne("like.ltlikecount",likebean);
 	}
 	
-	public int ltlikeCheck(LikeBean likebean) {
-		return sqltemp.selectOne("like.ltlikecheck",likebean);
+	public int ltlikegetinfo(LikeBean likebean) {
+		return sqltemp.selectOne("like.ltlikegetinfo",likebean);
+	}
+	
+	public void likeinsert(LikeBean likebean) {
+		sqltemp.selectOne("like.likeinsert",likebean);
+	}
+	
+	public void likeupdate(LikeBean likebean) {
+		sqltemp.selectOne("like.likeupdate",likebean);
 	}
 	
 }

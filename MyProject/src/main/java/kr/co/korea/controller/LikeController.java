@@ -6,9 +6,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,49 +24,24 @@ public class LikeController {
 	@Autowired
 	private LikeService likeservice;
 	
-	@PostMapping("/check")
-	public Map<String,String> likeCheck(@RequestBody LikeBean likebean){
-		logger.info("likecheck");
+	@PutMapping("/likeupdate")
+	public Map<String,String> likeupdate(@RequestBody LikeBean likebean){
+		logger.info("likeupdate");
 		
 		Map<String,String> map = new HashMap<String, String>();
 		
-		String check = likeservice.likeCheck(likebean);
-		
 		try {
-			if(check == "ok") {
-				map.put("result", "ok");
-			}else {
-				map.put("result", "no");
-			}
+			likeservice.likeupdate(likebean);
+			map.put("result", "success");
+			
 		}catch(Exception e) {
 			e.printStackTrace();
-			map.put("result", "no");
+			map.put("result", "fail");
 		}
 		
 		return map;
 	}
 	
-	@PostMapping("/ltlikecheck")
-	public Map<String,String> ltlikeCheck(@RequestBody LikeBean likebean){
-		logger.info("ltlikeCheck");
-		
-		Map<String,String> map = new HashMap<String, String>();
-		
-		int check = likeservice.ltlikeCheck(likebean);
-		
-		try {
-			if(check == 0) {
-				map.put("result", "no");
-			}else {
-				map.put("result", "like");
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-			map.put("result", "no");
-		}
-		
-		return map;
-	}
 	
 	
 }

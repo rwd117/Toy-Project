@@ -40,7 +40,18 @@
 			<tr>
 				<td>제목</td>
 				<td><input class="form-control" type="text" id="btitle" name="btitle" value="${board.btitle }" disabled="disabled" /></td>
-				<td id="like"></td>
+				<td id="like">
+					<c:choose>
+						<c:when test="${ltlike ==0}">
+							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>					
+						<c:when test="${ltlike ==1}">
+							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>
+					</c:choose>					
+				</td>
 
 			</tr>
 			<tr>
@@ -64,97 +75,5 @@
 	</div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc91527cb88d7d84ce36ba29e47d1562&libraries=services"></script>
 	<script src="<c:url value="/resources/js/boardread.js" />"></script>
-	<script type="text/javascript">
-	$(function(){
-		likecheck();
-	});
-	
-	function likecheck(){
-		var root = getContextPath(),
-			likeurl = "/like/check",
-			mid = $('#mid').val(),
-			bid = $('#bid').val(),
-			data = {"ltmid" : mid,
-					"ltbid" : bid},
-			button="",
-			like=0;
-			
-		$.ajax({
-			url : root + likeurl,
-			type : 'POST',
-			contentType: 'application/json',
-			data : JSON.stringify(data),
-			success : function(result){
-				if(result.result === 'ok'){
-					like = ltlikecheck();
-					if(like === 0){
-						button +='<button type="button" class="btn btn-light" id="likebtn">좋아요</button>'; // 존재. 좋아요를 눌렀다가 취소한 경우
-						button +='<input type="hidden" id="nextCheck" value="'+like+'">';
-						
-					}else if(like === 1){
-						button +='<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>';// 존재. 좋아요를 누른 상태
-						button +='<input type="hidden" id="nextCheck" value="'+like+'">';
-					}
-				}else{
-					button +='<button type="button" class="btn btn-light" id="likebtn">좋아요</button>';//존재하지 않을때 insert해야함
-					button +='<input type="hidden" id="nextCheck" value="'+(like+2)+'">';
-				}
-				$('#like').html(button);
-				
-			}, error : function(result){
-				console.log("에러" + result.result)
-			}
-			
-		});
-	}
-	
-	function ltlikecheck(){
-		var root = getContextPath(),
-		likeurl = "/like/ltlikecheck",
-		mid = $('#mid').val(),
-		bid = $('#bid').val(),
-		data = {"ltmid" : mid,
-				"ltbid" : bid},
-		check = 0;
-		
-		$.ajax({
-			url : root + likeurl,
-			type : 'POST',
-			contentType: 'application/json',
-			data : JSON.stringify(data),
-			success : function(result){
-				if(result.result === 'like'){
-					check = 1;	
-				}else{
-					check = 0;
-				}
-			}, error : function(result){
-				console.log("에러" + result.result)
-			}
-			
-		});
-	
-		return check;
-	}
-	
-	
-	function getContextPath() {
-	    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
-	    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
-	} 
-	
-	$('#likebtn').click(function(){
-		var ExitstCheck	= $('#nextCheck').val();	
-		
-		if(ExitstCheck === '0'){//테이블에 없는 상태
-			
-		}else if(ExitstCheck === 'no'){//좋아요를 취소해서 원상 복귀 하지만 테이블에 남아있는 상태
-			
-		}else if(ExitstCheck === 'like'){//좋아요를 누른 상태
-			
-		}
-		
-	});
-	</script>
 </body>
 </html>
