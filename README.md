@@ -49,6 +49,13 @@
 
 </details>
 
+<details>
+    <summary>게시물 상세보기</summary>
+  
+![image](https://user-images.githubusercontent.com/69449157/115958882-53f73080-a544-11eb-87cb-ad0d1bf8bae7.png)
+
+</details>
+
 
 <details>
     <summary>게시물 작성</summary>
@@ -72,12 +79,7 @@
 
 </details>
 
-<details>
-    <summary>게시물 상세보기</summary>
-  
-![image](https://user-images.githubusercontent.com/69449157/115958882-53f73080-a544-11eb-87cb-ad0d1bf8bae7.png)
 
-</details>
 
 
 
