@@ -40,7 +40,7 @@
 <details>
     <summary>게시물 리스트</summary>
   
-![image](https://user-images.githubusercontent.com/69449157/115558674-ef429880-a2ed-11eb-976a-a126bd9339dc.png)
+![image](https://user-images.githubusercontent.com/69449157/115958769-bdc30a80-a543-11eb-9f7f-e07285b5c52b.png)
 
 
 </details>
