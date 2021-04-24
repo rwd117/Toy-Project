@@ -41,16 +41,25 @@
 				<td>제목</td>
 				<td><input class="form-control" type="text" id="btitle" name="btitle" value="${board.btitle }" disabled="disabled" /></td>
 				<td id="like">
+					
+					<c:if test="${user != board.bwriter}">
 					<c:choose>
 						<c:when test="${ltlike ==0}">
 							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
+							좋아요 : 
 						</c:when>					
 						<c:when test="${ltlike ==1}">
 							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
+							좋아요 : 
 						</c:when>
-					</c:choose>	
+					</c:choose>
+					</c:if>
+					<c:if test="${user == board.bwriter}">
+						좋아요 : 
+					</c:if>	
+						
 					<span id="likecount">${board.blike }</span>				
 				</td>
 

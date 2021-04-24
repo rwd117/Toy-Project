@@ -31,8 +31,8 @@
 <p>${user}님, 반갑습니다.</p>
 </sec:authorize>
 
-
 <a href='<c:url value="/boards"/>'>게시물 보기</a>
+
 </section>
 </div>
 </body>

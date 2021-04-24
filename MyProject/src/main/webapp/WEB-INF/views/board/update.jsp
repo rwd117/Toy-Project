@@ -24,7 +24,7 @@
 			<tr>
 				<td>제목</td>
 				<td><input class="form-control" type="text" id="btitle" name="btitle" value="${board.btitle }"/></td>
-				<td>조회수 : </td>
+				<td>좋아요 : ${board.blike } </td>
 
 			</tr>
 			<tr>

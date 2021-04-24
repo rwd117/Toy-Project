@@ -5,7 +5,7 @@ function checkUserIdExist(){
 	var idurl = "/member/idcheck/",
 		mid = $('#mid').val(),
 		idrule = /^[a-z0-9]{4,12}$/,
-		chk_num = mid.search(/[0-9]/g);
+		chk_num = mid.search(/[0-9]/g),
     	chk_eng = mid.search(/[a-z]/ig);
 	
 	if(mid.length <4){
