@@ -32,6 +32,64 @@
   
 ![image](https://user-images.githubusercontent.com/69449157/115558572-d89c4180-a2ed-11eb-9df5-600a0d45f772.png)
 
++ 자바스크립트를 이용해서 유효성 검사(ex : id에 관한 유효성 검사 및 중복검사)
+~~~
+function checkUserIdExist(){
+	var idurl = "/member/idcheck/",
+		mid = $('#mid').val(),
+		idrule = /^[a-z0-9]{4,12}$/,
+		chk_num = mid.search(/[0-9]/g),
+    	chk_eng = mid.search(/[a-z]/ig);
+	
+	if(mid.length <4){
+			alert("아이디는 4자 이상이어야 합니다.");
+			return false;
+			
+	}
+	if(mid.length >12){
+		alert("아이디는 12자까지 입력 할 수 있습니다.");
+		return false;
+			
+	}
+	if(!idrule.test(mid) || chk_num < 0 || chk_eng < 0){
+		alert("아이디는 영어/숫자로만 입력 할 수 있습니다.");
+		return false;
+			
+	}
+	if(mid.length == 0 ||mid == null || mid.trim() == "" ) {
+		alert("아이디를 입력해주세요");
+		return false;
+			
+	}
+		$.ajax({
+		url : getContextPath()+idurl+mid,
+		type : 'POST',
+		dataType : 'json',
+		success : function(data){
+				if(data.result==='success') {
+					alert('사용할수 있는 아이디');
+					$('#userIdExist').val('true');
+				
+				}
+				else {
+					alert('사용할수 없는 아이디');
+					$('#userIdExist').val('false');
+					
+				}
+		}, error : function(data){
+			alert('사용할수 없는 아이디');
+			$('#userIdExist').val('false');
+					
+		}	
+	});	
+	
+	return false;
+	
+};
+~~~
+
++ 주소 찾기는 다음 주소찾기 Api이용
+
 </details>
 
 
@@ -40,6 +98,27 @@
     <summary>로그인 후</summary>
   
 ![image](https://user-images.githubusercontent.com/69449157/115558644-e782f400-a2ed-11eb-9214-975fc8575f7e.png)
+
++ 로그인 한 상태와 안한 상태 구분(시큐리티 이용)
+~~~
+<sec:authorize access="isAnonymous()">
+<a href='<c:url value="/member/join"/>'>Join</a>
+<a href='<c:url value="/member/login"/>'>login</a>
+</sec:authorize>
+
+<sec:authorize access="isAuthenticated()">
+<sec:authentication property="principal" var="user"/>
+<a href="#" onclick="document.getElementById('logout-form').submit();">Sign out</a>
+<form id="logout-form" action='<c:url value='/logout'/>' method="POST">
+   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+</form>
+<p>${user}님, 반갑습니다.</p>
+</sec:authorize>
+
+<a href='<c:url value="/boards"/>'>게시물 보기</a>
+~~~
+
++ 게시물 보기의 경우 로그인 상태에서만 확인 가능(시큐리티)
 
 
 </details>
