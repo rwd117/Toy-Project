@@ -38,6 +38,7 @@
 	
 	<websocket:handlers>
 		<websocket:mapping handler="myHandler" path="/alarm" />
+		<websocket:sockjs websocket-enabled="true"/>
 	</websocket:handlers>	
 	
 	<beans:bean id="myHandler" class="kr.co.korea.handler.WebSocketHandler" />

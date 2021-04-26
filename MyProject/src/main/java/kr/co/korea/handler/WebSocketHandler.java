@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.server.WebSession;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -20,7 +19,6 @@ public class WebSocketHandler extends TextWebSocketHandler{
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {//클라이언트와 서버가 연결
 		// TODO Auto-generated method stub
-		
 		logger.info("Socket 연결");
 		
 	}
@@ -29,7 +27,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {// 메시지
 		// TODO Auto-generated method stub
 		
-		session.sendMessage(new TextMessage(currentUserName()+"님이 로그인 하셨습니다."));
+		session.sendMessage(new TextMessage(currentUserName()+"님이 로그인 하셨습니다." + message.getPayload()));
 		
 	}
 	
