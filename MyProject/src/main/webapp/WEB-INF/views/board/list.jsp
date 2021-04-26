@@ -8,7 +8,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="<c:url value="/resources/js/socket.js"/>"></script>
 </head>
 <body>
 	<div class="container">

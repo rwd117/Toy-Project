@@ -99,7 +99,7 @@ public class BoardController {
 	}
 	
 	//유저의 아이디를 가져옴
-	private static String currentUserName() { 
+	private String currentUserName() { 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication(); 
 		String user = auth.getName(); 
 		return user; 
