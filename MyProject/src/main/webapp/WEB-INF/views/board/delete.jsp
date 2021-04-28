@@ -48,7 +48,7 @@
 		<div id="map" style="width:600px;height:350px;"></div>    
 		<hr />
 </div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc91527cb88d7d84ce36ba29e47d1562&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fb65a905dabe112b30347eb2578e176a&libraries=services"></script>
 <script src="<c:url value="/resources/js/boarddelete.js"/>"></script>
 </body>
 </html>

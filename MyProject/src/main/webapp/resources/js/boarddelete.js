@@ -2,7 +2,7 @@
  * 
  */
  $('#listgo').click(function(){
-		var url = "http://localhost:8077/MyProject",
+		var url = getContextPath(),
 			page = $('#page').val(),
 			perPageNum = $('#perPageNum').val();
 			

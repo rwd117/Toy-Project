@@ -11,6 +11,7 @@
 	
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/boards/**" access="hasAnyRole('ROLE_MEMBER','ROLE_ADMIN')" />
+		<intercept-url pattern="/alarm" access="hasAnyRole('ROLE_MEMBER','ROLE_ADMIN')" />
 		<intercept-url pattern="/**" access="permitAll" />
 	
 		<form-login

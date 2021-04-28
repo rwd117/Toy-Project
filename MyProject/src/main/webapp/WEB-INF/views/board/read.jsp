@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
 <div class="container">
@@ -83,7 +84,7 @@
 		<hr/>
 
 	</div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc91527cb88d7d84ce36ba29e47d1562&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fb65a905dabe112b30347eb2578e176a&libraries=services"></script>
 	<script src="<c:url value="/resources/js/boardread.js" />"></script>
 </body>
 </html>

@@ -1,27 +1,23 @@
 /**
  * 
  */
-
-	
+	var sock = null;
  
    $(document).ready(function(){
 		connectWs();
    });
- 	
-	var sock = null;
   
 	function connectWs(){
 	
 	sock = new SockJS(getContextPath()+'/alarm');
 	
    	sock.onopen = function() {
-     console.log('open');
-     sock.send('test');
+     	console.log('open');
 	 };
 
  	sock.onmessage = function(e) {
    	  console.log('message', e.data);
-   	  sock.close();
+ //  	  sock.close();
 	 };
 
  	sock.onclose = function() {
