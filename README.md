@@ -146,6 +146,9 @@ function checkUserIdExist(){
   
 ![image](https://user-images.githubusercontent.com/69449157/116549768-dca11280-a930-11eb-838d-00226e63886f.png)
 
+
+![image](https://user-images.githubusercontent.com/69449157/116549806-ea569800-a930-11eb-8860-afc9ad52d737.png)
+
 </details>
 
 
@@ -154,7 +157,6 @@ function checkUserIdExist(){
   
 ![image](https://user-images.githubusercontent.com/69449157/115958969-bb14e500-a544-11eb-948e-6ab50f8211f9.png)
 
-![image](https://user-images.githubusercontent.com/69449157/116549806-ea569800-a930-11eb-8860-afc9ad52d737.png)
 
 
 </details>
