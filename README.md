@@ -144,7 +144,7 @@ function checkUserIdExist(){
 <details>
     <summary>게시물 상세보기</summary>
   
-![image](https://user-images.githubusercontent.com/69449157/115958882-53f73080-a544-11eb-87cb-ad0d1bf8bae7.png)
+![image](https://user-images.githubusercontent.com/69449157/116549768-dca11280-a930-11eb-838d-00226e63886f.png)
 
 </details>
 
@@ -153,6 +153,9 @@ function checkUserIdExist(){
     <summary>게시물 수정</summary>
   
 ![image](https://user-images.githubusercontent.com/69449157/115958969-bb14e500-a544-11eb-948e-6ab50f8211f9.png)
+
+![image](https://user-images.githubusercontent.com/69449157/116549806-ea569800-a930-11eb-8860-afc9ad52d737.png)
+
 
 </details>
 
