@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="alarm">
+	
+	<select id="alarmlist" resultType="kr.co.korea.beans.AlarmBean">
+		select * from alarm order by acheck asc,aid desc
+	</select>
+		
+	<insert id="alarminsert" parameterType="kr.co.korea.beans.AlarmBean">
+		insert into alarm(aid,amid,abid,areceiver,acheck,acontent)
+		values(alarm_seq.nextval,#{amid},#{abid},#{areceiver},#{acheck},#{acontent})
+	</insert>
+	
+	<update id="alarmupdate" parameterType="Integer">
+		update alarm
+		set acheck = acheck+1 
+		where aid=#{aid}
+	</update>	
+	
+</mapper>

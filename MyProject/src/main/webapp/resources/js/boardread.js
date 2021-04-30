@@ -12,7 +12,10 @@ $('#listgo').click(function() {
 });
 
 $('#likebtn').click(function(){
-		likeupdate();
+	var user = $('#mid').val();
+	alert(user);
+	
+	likeupdate();
 	});
 	
 	function likeupdate(){
@@ -23,8 +26,7 @@ $('#likebtn').click(function(){
 		receiver = $('#bwriter').val(),
 		btitle = $('#btitle').val(),
 		count = $('#likecheck').val(),
-		data = {"ltmid" : mid,
-				"ltbid" : bid,
+		data = {"ltbid" : bid,
 				"count" : count};
 		
 	$.ajax({
