@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-		<sec:authentication property="principal" var="user" />
+		<sec:authentication property="principal" var="user"/>
 		<sec:authorize access="isAuthenticated()">
 			<form id="logout-form" action='<c:url value='/logout'/>' method="POST">
 				<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}" />
@@ -32,7 +32,6 @@
 		<input type="hidden" id="guideLa" name="guideLa" value="${board.guideLa }">
 		<input type="hidden" id="guideMa" name="guideMa" value="${board.guideMa }">
 		<input type="hidden" id="bid" name="bid" value="${board.bid }">
-		<input type="hidden"  name="mid" value="${user }">
 		<hr />
 		<!-- 게시물 기본 정보  -->
 		<button class="btn btn-outline-success" type="button" id="listgo">게시판으로</button>

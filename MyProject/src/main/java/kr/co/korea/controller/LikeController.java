@@ -35,10 +35,7 @@ public class LikeController {
 		Map<String,Object> map = new HashMap<String, Object>();
 		
 		try {
-			ObjectMapper obm = new ObjectMapper();
 			likebean.setLtmid(currentUserName());
-			
-			
 			likeservice.likeupdate(likebean);
 			int like = likebean.getAllltlike();
 			

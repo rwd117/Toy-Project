@@ -12,8 +12,6 @@ $('#listgo').click(function() {
 });
 
 $('#likebtn').click(function(){
-	var user = $('#mid').val();
-	alert(user);
 	
 	likeupdate();
 	});
@@ -21,7 +19,6 @@ $('#likebtn').click(function(){
 	function likeupdate(){
 		var root = getContextPath(),
 		likeurl = "/like/likeupdate",
-		mid = $('#mid').val(),
 		bid = $('#bid').val(),
 		receiver = $('#bwriter').val(),
 		btitle = $('#btitle').val(),
