@@ -17,13 +17,13 @@ import kr.co.korea.beans.AlarmBean;
 import kr.co.korea.service.AlarmService;
 
 @RestController
-@RequestMapping("/alarm")
+@RequestMapping("/savealarm")
 public class AlaramController {
 
 	@Autowired
 	private AlarmService alarmservice;
 	
-	@PostMapping("")
+	@PostMapping("/no")
 	public List<AlarmBean> alarmlist(){
 		List<AlarmBean> list = new ArrayList<>();
 		
@@ -32,18 +32,20 @@ public class AlaramController {
 		return list;
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("")
 	public Map<String,Object> alarminsert(@RequestBody AlarmBean alarmbean) {
 			
 		Map<String,Object> map = new HashMap<String, Object>();
 		
 		try {
+			alarmbean.setAmid(currentUserName());
+			
 			alarmservice.alarminsert(alarmbean);
 			map.put("result", "success");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
-			map.put("result", "success");
+			map.put("result", "fail");
 		}
 		
 		return map;

@@ -20,6 +20,9 @@
 </form>
 <p>${user}님, 반갑습니다.</p>
 <a href="#" onclick="document.getElementById('logout-form').submit();">Sign out</a>
+
+<span id="alal">알림</span>
+
 </sec:authorize>
 		<section id="container">
 				<table class="table table-hover">

@@ -50,11 +50,13 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				WebSocketSession receiversession = userSessionsMap.get(receiver);//글 작성자가 현재 접속중인가 체크
 				
 				if(receiversession !=null) {
-					TextMessage txtmsg = new TextMessage(mid+"님이" + receiver + "님의" + btitle + comment);
+					TextMessage txtmsg = new TextMessage(mid+"님이" + receiver + "님의" + 
+					"<a type='external' href='<c:url value=\"/boards/"+bid+"'>" + btitle + "</a> 게시물을 좋아합니다.");
 					receiversession.sendMessage(txtmsg);//작성자에게 알려줍니다
 					logger.info("Msg");
 				}else {
-					TextMessage txtmsg = new TextMessage(mid+"님이" + receiver + "님의" + btitle + comment);
+					TextMessage txtmsg = new TextMessage(mid+"님이" + receiver + "님의" + 
+							"<a type='external' href='<c:url value=\"/boards/"+bid+"'>" + btitle + "</a> 게시물을 좋아합니다.");
 					session.sendMessage(txtmsg);//보내지는지 체크하기
 					logger.info("Msg");
 				}

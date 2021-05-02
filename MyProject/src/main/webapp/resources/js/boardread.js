@@ -37,7 +37,7 @@ $('#likebtn').click(function(){
 				 $('#likecheck').val(0);
 				 $('#likebtn').attr('class','btn btn-light');
 				 $('#likecount').html(result.like);
-				 if(sock){
+				if(sock){
 				 var Msg = bid+","+receiver+","+count+","+btitle;
 				 sock.send(Msg);
 				 }
@@ -57,6 +57,34 @@ $('#likebtn').click(function(){
 		
 		});
 	};
+	
+	function alarm(){
+		var root = getContextPath(),
+		alarmurl = "/savealarm",
+		bid = $('#bid').val(),
+		receiver = $('#bwriter').val(),
+		data = {"abid" : bid,
+				"areceiver" : receiver,
+				"acontent" : 'like'};
+		
+		$.ajax({
+			url : root + alarmurl,
+			type : 'POST',
+			contentType: 'application/json',
+			data : JSON.stringify(data),
+			success : function(result){
+				if(sock){
+				 var Msg = bid+","+receiver+","+count+","+btitle;
+				 sock.send(Msg);
+				 }
+				
+			}, error : function(result){
+				console.log("에러" + result.result)
+			}
+		
+			});
+		
+	}
 	
 	function getContextPath() {
 	    var hostIndex = location.href.indexOf( location.host ) + location.host.length;

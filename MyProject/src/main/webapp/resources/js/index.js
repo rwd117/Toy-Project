@@ -17,6 +17,7 @@
 
  	sock.onmessage = function(e) {
    	  console.log('message', e.data);
+	  $('#alal').html(e.data);	
  //  	  sock.close();
 	 };
 
