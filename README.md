@@ -127,7 +127,7 @@ function checkUserIdExist(){
 <details>
     <summary>게시물 리스트</summary>
   
-![image](https://user-images.githubusercontent.com/69449157/115958769-bdc30a80-a543-11eb-9f7f-e07285b5c52b.png)
+![image](https://user-images.githubusercontent.com/69449157/117146902-a57aa780-adef-11eb-9019-e1618da7ea0d.png)
 
 
 </details>
@@ -137,17 +137,20 @@ function checkUserIdExist(){
 <details>
     <summary>게시물 작성</summary>
   
-![image](https://user-images.githubusercontent.com/69449157/115558851-1c8f4680-a2ee-11eb-8193-36fc89773d10.png)
+![image](https://user-images.githubusercontent.com/69449157/117147268-0dc98900-adf0-11eb-8df5-51958ea7ef90.png)
 
 </details>
 
 <details>
     <summary>게시물 상세보기</summary>
   
-![image](https://user-images.githubusercontent.com/69449157/116549768-dca11280-a930-11eb-838d-00226e63886f.png)
+![image](https://user-images.githubusercontent.com/69449157/117146948-b4615a00-adef-11eb-9bf8-10a02b71d4f4.png)
 
 
-![image](https://user-images.githubusercontent.com/69449157/116549806-ea569800-a930-11eb-8860-afc9ad52d737.png)
+![image](https://user-images.githubusercontent.com/69449157/117147061-d78c0980-adef-11eb-8cf4-20c9eb72ae70.png)
+
+![image](https://user-images.githubusercontent.com/69449157/117147115-e672bc00-adef-11eb-87af-1f214779869f.png)
+
 
 </details>
 
@@ -155,7 +158,7 @@ function checkUserIdExist(){
 <details>
     <summary>게시물 수정</summary>
   
-![image](https://user-images.githubusercontent.com/69449157/115958969-bb14e500-a544-11eb-948e-6ab50f8211f9.png)
+![image](https://user-images.githubusercontent.com/69449157/117147521-4bc6ad00-adf0-11eb-8e35-f60b01847444.png)
 
 
 
@@ -164,8 +167,7 @@ function checkUserIdExist(){
 <details>
     <summary>게시물 삭제</summary>
   
-![image](https://user-images.githubusercontent.com/69449157/115958992-d97ae080-a544-11eb-9aad-9915d2a5cc28.png)
-
+![image](https://user-images.githubusercontent.com/69449157/117147595-5c772300-adf0-11eb-8c21-8153b13a378b.png)
 </details>
 
 
