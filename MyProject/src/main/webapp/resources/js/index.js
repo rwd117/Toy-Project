@@ -12,11 +12,13 @@
 	sock = new SockJS(getContextPath()+'/alarm');
 	
    	sock.onopen = function() {
+		alarmcount();
      	console.log('open');
 	 };
 
  	sock.onmessage = function(e) {
    	  console.log('message', e.data);
+		
 	  $('#alal').html(e.data);	
  //  	  sock.close();
 	 };
@@ -26,6 +28,22 @@
 	 };
  
   };
+
+	function alarmcount(){
+		var root = getContextPath(),
+			count = "/msg/countalarm";
+		
+		$.ajax({
+			url : root + count,
+			type : 'POST',
+			contentType: 'application/json',
+			success : function(result){
+				$('#alarmcount').html(result);
+			},error : function(result){
+				console.log("에러" + result);
+			}	
+		});
+	}
 
 	function getContextPath() {
 	    var hostIndex = location.href.indexOf( location.host ) + location.host.length;

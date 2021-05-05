@@ -17,7 +17,7 @@ import kr.co.korea.beans.AlarmBean;
 import kr.co.korea.service.AlarmService;
 
 @RestController
-@RequestMapping("/savealarm")
+@RequestMapping("/msg")
 public class AlaramController {
 
 	@Autowired
@@ -27,12 +27,29 @@ public class AlaramController {
 	public List<AlarmBean> alarmlist(){
 		List<AlarmBean> list = new ArrayList<>();
 		
-		list = alarmservice.alarmlist();
+		list = alarmservice.alarmlist(currentUserName() );
 		
 		return list;
 	}
 	
-	@PostMapping("")
+	@PostMapping("/countalarm")
+	public int alarmcount() {
+			
+		int count = 0;
+		
+		try {
+			
+			count = alarmservice.alarmcount(currentUserName());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			count =0;
+		}
+		
+		return count;
+	}
+	
+	@PostMapping("/savealarm")
 	public Map<String,Object> alarminsert(@RequestBody AlarmBean alarmbean) {
 			
 		Map<String,Object> map = new HashMap<String, Object>();

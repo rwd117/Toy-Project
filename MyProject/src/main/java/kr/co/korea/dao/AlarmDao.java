@@ -14,8 +14,8 @@ public class AlarmDao {
 	@Autowired
 	private SqlSessionTemplate sqltemp;
 	
-	public List<AlarmBean> alarmlist(){
-		return sqltemp.selectList("alarm.alarmlist");
+	public List<AlarmBean> alarmlist(String mid){
+		return sqltemp.selectList("alarm.alarmlist",mid);
 	}
 	
 	public void alarminsert(AlarmBean alarmbean) {
@@ -24,6 +24,10 @@ public class AlarmDao {
 	
 	public void alarmupdate(int aid) {
 		sqltemp.update("alarm.alarmupdate",aid);
+	}
+	
+	public int alarmcount(String mid) {
+		return sqltemp.selectOne("alarm.alarmcount",mid);
 	}
 	
 }

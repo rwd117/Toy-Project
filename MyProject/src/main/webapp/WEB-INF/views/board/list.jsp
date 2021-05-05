@@ -12,18 +12,46 @@
 <script src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
-	<div class="container">
+<header>
+<div class="container">
+
 <sec:authorize access="isAuthenticated()">
 <sec:authentication property="principal" var="user"/>
 <form id="logout-form" action='<c:url value='/logout'/>' method="POST">
    <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
 </form>
-<p>${user}님, 반갑습니다.</p>
-<a href="#" onclick="document.getElementById('logout-form').submit();">Sign out</a>
 
-<span id="alal">알림</span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">${user}님</a>
+        </li>
+        <li class="nav-item">
+        	<a href="#" style="text-decoration:none;">
+       	 	<span id="alal">
+       	 	<img src="https://o.remove.bg/downloads/533ae0fd-6b22-4255-a7d2-6ec8f06cc84e/1497620003-jd23_85167-removebg-preview.png" style="width : 50px; height : 50px"/>
+       	 	<span id="alarmcount" style="color : red; top : -10px; position : relative; font-size : 12px; margin : 0px 0px 0px -25px; font-weight : 600;"></span>
+       	 	</span>
+       	 	</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">게시판으로</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="document.getElementById('logout-form').submit();">로그 아웃</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 </sec:authorize>
+</div>
+</header>
+
+<div class="container">
 		<section id="container">
 				<table class="table table-hover">
 					<thead>

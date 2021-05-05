@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="alarm">
 	
-	<select id="alarmlist" resultType="kr.co.korea.beans.AlarmBean">
-		select * from alarm  order by acheck asc,aid desc
+	<select id="alarmlist" parameterType="String" resultType="kr.co.korea.beans.AlarmBean">
+		select * from alarm where areceiver=#{areceiver} order by acheck asc,aid desc
+	</select>
+	
+	<select id="alarmcount" parameterType="String" resultType="Integer">
+		select count(ACHECK) from alarm where ACHECK=0 and areceiver=#{areceiver}
 	</select>
 		
 	<insert id="alarminsert" parameterType="kr.co.korea.beans.AlarmBean">

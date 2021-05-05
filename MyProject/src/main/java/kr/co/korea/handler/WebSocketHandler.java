@@ -40,9 +40,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				String count = msgs[2];//0이면 좋아요 취소 1이면 좋아요
 				String btitle = msgs[3];//게시물 제목
 				String comment = "";
-				if(count.equals("1")) {
-					comment = "의 좋아요를 취소했습니다.";
-				}else if(count.equals("0")) {
+				if(count.equals("0")) {
 					comment = "을 좋아합니다.";
 				}
 				String mid = currentUserName(session);//좋아요 누른 사람
@@ -51,12 +49,12 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				
 				if(receiversession !=null) {
 					TextMessage txtmsg = new TextMessage(mid+"님이" + receiver + "님의" + 
-					"<a type='external' href='<c:url value=\"/boards/"+bid+"'>" + btitle + "</a> 게시물을 좋아합니다.");
+					"<a type='external' href='"+bid+"'>" + btitle + "</a> 게시물을 좋아합니다.");
 					receiversession.sendMessage(txtmsg);//작성자에게 알려줍니다
 					logger.info("Msg");
 				}else {
 					TextMessage txtmsg = new TextMessage(mid+"님이" + receiver + "님의" + 
-							"<a type='external' href='<c:url value=\"/boards/"+bid+"'>" + btitle + "</a> 게시물을 좋아합니다.");
+							"<a type='external' href='"+bid+"'>" + btitle + "</a> 게시물을 좋아합니다.");
 					session.sendMessage(txtmsg);//보내지는지 체크하기
 					logger.info("Msg");
 				}

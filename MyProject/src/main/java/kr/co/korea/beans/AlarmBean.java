@@ -15,6 +15,6 @@ public class AlarmBean {
 	private String amid;//좋아요 누른 사람
 	private String areceiver;//게시물 작성자
 	private String acontent;//알림 타입(좋아요를 눌러서 알림)
-	
+	private int alarmcount;//알람 안읽은 것 들
 	
 }

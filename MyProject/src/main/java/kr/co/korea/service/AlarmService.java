@@ -14,8 +14,8 @@ public class AlarmService {
 	@Autowired
 	private AlarmDao alarmdao;
 	
-	public List<AlarmBean> alarmlist(){
-		return alarmdao.alarmlist();
+	public List<AlarmBean> alarmlist(String mid){
+		return alarmdao.alarmlist(mid);
 	}
 	
 	public void alarminsert(AlarmBean alarmbean) {
@@ -24,6 +24,10 @@ public class AlarmService {
 	
 	public void alarmupdate(int aid) {
 		alarmdao.alarmupdate(aid);
+	}
+	
+	public int alarmcount(String mid) {
+		return alarmdao.alarmcount(mid);
 	}
 	
 }
