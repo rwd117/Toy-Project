@@ -1,5 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<sec:authentication property="principal" var="user"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +14,8 @@
 <script src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -37,6 +40,7 @@
     </div>
   </div>
 </nav>
+</div>
 <div class="container">
 		
 		<input type="hidden" id="page" name="page" value="${cri.page }">

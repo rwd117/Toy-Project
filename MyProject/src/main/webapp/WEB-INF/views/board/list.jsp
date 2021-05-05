@@ -20,7 +20,6 @@
 <form id="logout-form" action='<c:url value='/logout'/>' method="POST">
    <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
 </form>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

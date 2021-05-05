@@ -5,6 +5,7 @@
  
    $(document).ready(function(){
 		connectWs();
+		alarmcount();
    });
   
 	function connectWs(){
@@ -12,13 +13,13 @@
 	sock = new SockJS(getContextPath()+'/alarm');
 	
    	sock.onopen = function() {
-		alarmcount();
+		
      	console.log('open');
 	 };
 
  	sock.onmessage = function(e) {
    	  console.log('message', e.data);
-		
+		alarmcount();
 	  $('#alal').html(e.data);	
  //  	  sock.close();
 	 };

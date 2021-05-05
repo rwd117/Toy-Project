@@ -15,7 +15,7 @@
 <script src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
-
+<div class="container">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -41,7 +41,7 @@
     </div>
   </div>
 </nav>
-
+</div>
 	<div class="container">
 		<h2>글 작성</h2>
 			<input type="hidden" id="guideMa" name="guideMa" value="">
