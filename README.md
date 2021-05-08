@@ -156,6 +156,11 @@ function checkUserIdExist(){
 
 + 좋아요 클릭 시, 소켓으로 작성자의 알람의 숫자가 증가
 
++ 좋아요 클릭 했을 때, 작성자가 접속 중이라면 소켓을 이용하여 알림의 숫자가 변경.
+~~~
+
+~~~
+
 ![image](https://user-images.githubusercontent.com/69449157/117147115-e672bc00-adef-11eb-87af-1f214779869f.png)
 
 + 작성자 및 관리자의 경우 좋아요 버튼 생성 x(jstl 이용)
