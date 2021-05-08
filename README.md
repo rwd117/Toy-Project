@@ -183,6 +183,7 @@ function checkUserIdExist(){
   
 ![image](https://user-images.githubusercontent.com/69449157/117147595-5c772300-adf0-11eb-8c21-8153b13a378b.png)
 
++ 삭제하기전 본인이 작성한 게시물 확인 
 
 </details>
 
