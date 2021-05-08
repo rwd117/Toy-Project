@@ -139,6 +139,8 @@ function checkUserIdExist(){
   
 ![image](https://user-images.githubusercontent.com/69449157/117147268-0dc98900-adf0-11eb-8df5-51958ea7ef90.png)
 
++ 게시물 작성(카카오 맵 Api이용)
+
 </details>
 
 <details>
@@ -146,11 +148,13 @@ function checkUserIdExist(){
   
 ![image](https://user-images.githubusercontent.com/69449157/117146948-b4615a00-adef-11eb-9bf8-10a02b71d4f4.png)
 
-
 ![image](https://user-images.githubusercontent.com/69449157/117147061-d78c0980-adef-11eb-8cf4-20c9eb72ae70.png)
+
++ 작성자 이외 사용자는 좋아요 버튼 생성(Ajax)
 
 ![image](https://user-images.githubusercontent.com/69449157/117147115-e672bc00-adef-11eb-87af-1f214779869f.png)
 
++ 작성자 및 관리자의 경우 버튼 생성 x(jstl 이용)
 
 </details>
 
@@ -160,6 +164,7 @@ function checkUserIdExist(){
   
 ![image](https://user-images.githubusercontent.com/69449157/117147521-4bc6ad00-adf0-11eb-8e35-f60b01847444.png)
 
++ 제목, 내용 수정 가능
 
 
 </details>
@@ -168,6 +173,8 @@ function checkUserIdExist(){
     <summary>게시물 삭제</summary>
   
 ![image](https://user-images.githubusercontent.com/69449157/117147595-5c772300-adf0-11eb-8c21-8153b13a378b.png)
+
+
 </details>
 
 
