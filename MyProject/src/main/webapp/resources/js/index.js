@@ -20,7 +20,9 @@
  	sock.onmessage = function(e) {
    	  console.log('message', e.data);
 		alarmcount();
-	  $('#alal').html(e.data);	
+	  $('.card').toggleClass('diriri');	
+	  $('.card-body').toggleClass('hiddiv');
+	  $('.card-title').html(e.data);	
  //  	  sock.close();
 	 };
 

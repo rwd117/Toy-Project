@@ -11,8 +11,26 @@
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <script src="<c:url value="/resources/js/index.js"/>"></script>
+<style type="text/css">
+	.almessage{
+		float : right;
+		position: absolute;
+		margin-top : -40px;
+	}
+	.diriri{
+		margin-top : -100px;
+		display : block;
+	}
+	
+	.hiddiv{
+		display : none;
+	}
+</style>
 </head>
 <body>
+<form id="logout-form" action='<c:url value='/logout'/>' method="POST">
+   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+</form>
 <div class="container">
 <sec:authentication property="principal" var="user"/>
 <sec:authorize access="hasRole('ROLE_MEMBER')">
@@ -26,7 +44,7 @@
         <li class="nav-item">
         	<a href="#" style="text-decoration:none;">
        	 	<span >
-       	 	<img src="https://o.remove.bg/downloads/533ae0fd-6b22-4255-a7d2-6ec8f06cc84e/1497620003-jd23_85167-removebg-preview.png" style="width : 50px; height : 50px"/>
+       	 	<img src="https://o.remove.bg/downloads/faa1c53f-9f89-4638-a685-e6c3a2a74f6b/1497620003-jd23_85167-removebg-preview.png" style="width : 50px; height : 50px"/>
        	 	<span id="alarmcount" style="color : red; top : -10px; position : relative; font-size : 12px; margin : 0px 0px 0px -25px; font-weight : 600;"></span>
        	 	</span>
        	 	</a>
@@ -92,18 +110,21 @@
 				<td id="like">
 					
 					<c:if test="${user != board.bwriter}">
+					
 					<c:choose>
-						<c:when test="${ltlike ==0}">
+						<c:when test="${ltlike == 0}">
 							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
 							좋아요 : 
 						</c:when>					
-						<c:when test="${ltlike ==1}">
+						<c:when test="${ltlike == 1}">
 							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
 							좋아요 : 
 						</c:when>
+						
 					</c:choose>
+					
 					</c:if>
 					<c:if test="${user == board.bwriter}">
 						좋아요 : 
@@ -130,7 +151,14 @@
 		
 		<br/>
 		<hr/>
-
+		
+		<div class="card border-secondary mb-3 almessage" style="max-width: 18rem;">
+  				<div class="card-header">알림</div>
+ 				 <div class="card-body text-secondary hiddiv">
+   				 <p class="card-title">Secondary card title</p>
+ 				 </div>
+			</div>
+		
 	</div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fb65a905dabe112b30347eb2578e176a&libraries=services"></script>
 	<script src="<c:url value="/resources/js/boardread.js" />"></script>

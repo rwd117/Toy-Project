@@ -14,6 +14,9 @@
 <script src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
+<form id="logout-form" action='<c:url value='/logout'/>' method="POST">
+   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+</form>
 <div class="container">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">

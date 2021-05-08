@@ -15,6 +15,9 @@
 <script src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
+<form id="logout-form" action='<c:url value='/logout'/>' method="POST">
+   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+</form>
 <div class="container">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
@@ -26,7 +29,7 @@
         <li class="nav-item">
         	<a href="#" style="text-decoration:none;">
        	 	<span id="alal">
-       	 	<img src="https://o.remove.bg/downloads/533ae0fd-6b22-4255-a7d2-6ec8f06cc84e/1497620003-jd23_85167-removebg-preview.png" style="width : 50px; height : 50px"/>
+       	 	<img src="https://o.remove.bg/downloads/b04867d3-cb5f-495f-999d-e6413899e911/1497620003-jd23_85167-removebg-preview.png" style="width : 50px; height : 50px"/>
        	 	<span id="alarmcount" style="color : red; top : -10px; position : relative; font-size : 12px; margin : 0px 0px 0px -25px; font-weight : 600;"></span>
        	 	</span>
        	 	</a>
