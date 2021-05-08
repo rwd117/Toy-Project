@@ -163,7 +163,7 @@ function checkUserIdExist(){
 
 ![image](https://user-images.githubusercontent.com/69449157/117147115-e672bc00-adef-11eb-87af-1f214779869f.png)
 
-+ 작성자 및 관리자의 경우 좋아요 버튼 생성 x(jstl 이용)
++ 작성자경우 좋아요 버튼 생성 x(jstl 이용)
 
 </details>
 
