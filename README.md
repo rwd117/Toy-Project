@@ -152,6 +152,8 @@ function checkUserIdExist(){
 
 + 작성자 이외 사용자는 좋아요 버튼 생성(Ajax)
 
++ 좋아요 클릭 시, 소켓으로 작성자의 알람의 숫자가 증가
+
 ![image](https://user-images.githubusercontent.com/69449157/117147115-e672bc00-adef-11eb-87af-1f214779869f.png)
 
 + 작성자 및 관리자의 경우 버튼 생성 x(jstl 이용)
