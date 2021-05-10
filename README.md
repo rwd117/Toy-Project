@@ -131,6 +131,7 @@ function checkUserIdExist(){
   
 ![image](https://user-images.githubusercontent.com/69449157/117146902-a57aa780-adef-11eb-9019-e1618da7ea0d.png)
 
++ 페이징 가능, 게시물의 좋아요 개수 확인 가능
 
 </details>
 
